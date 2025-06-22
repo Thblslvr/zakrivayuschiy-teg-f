@@ -406,3 +406,42 @@
 .btn-mod > .save-button__icon {
   margin-right: 10px;
 }
+
+.img__fltr_sepia {
+  filter: sepia(85%);
+}
+
+.img__fltr_saturate {
+  filter: saturate(2.1);
+}
+
+.img__fltr_invert {
+  filter: invert(100%);
+}
+
+.img__fltr_hue-rotate {
+  filter: hue-rotate(65deg);
+}
+
+.img__fltr_grayscale {
+  filter: grayscale(100%);
+}
+
+.img__fltr_brightness-blur {
+  filter: blur(2px) brightness(105%);
+}
+
+.img__fltr_saturate-sepia {
+  filter: saturate(180%) sepia(80%);
+}
+
+@supports (-webkit-text-stroke: 1px #000) or (text-stroke: 1px #000) {
+
+  .card__image-label {
+    /* Убираем text-shadow, так как есть поддержка text-stroke */
+    text-shadow: none;
+    /* Применяем text-stroke с префиксом и без */
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
+  }
+}
