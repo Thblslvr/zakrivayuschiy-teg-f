@@ -22,27 +22,31 @@
   --title-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   --text-size: 18px;
   --text-size-small: 14px;
-  --gradient-background: #000;
-  --gradient-color-primary: #007f0c;
-  --gradient-color-secondary: #004306;
+  --grid-color: #d3d3d3; /* цвет для линий сетки */
+  --gradient-start: #e7e7e7; /* начальный цвет основного градиента */
+  --gradient-end: #1a1a1a; /* конечный цвет основного градиента */
+
   --gradient-horizontal: repeating-linear-gradient(
     to right,
-    var(--gradient-background) 0 2px,
+    var(--grid-color) 0 2px,
     transparent 2px 4px
   );
+
   --gradient-vertical: repeating-linear-gradient(
     to bottom,
-    var(--gradient-background) 0 2px,
+    var(--grid-color) 0 2px,
     transparent 2px 4px
   );
-  --gradient-diagonal: repeating-linear-gradient(
+
+  --gradient-main: linear-gradient(
     to bottom,
-    var(--gradient-color-primary) 0.01%,
-    var(--gradient-color-secondary) 100%
+    var(--gradient-start) 0.01%,
+    var(--gradient-end) 100%
   );
-  --gradient-pattern:
-    var(--gradient-horizontal), var(--gradient-vertical),
-    var(--gradient-diagonal);
+
+  --background-image:
+    var(--gradient-horizontal), var(--gradient-vertical), var(--gradient-main);
+
   --color-heart-contour: #000;
   --color-heart-filled: var(--color-heart);
   --color-heart-unfilled: #fff;
