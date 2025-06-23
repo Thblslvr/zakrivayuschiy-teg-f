@@ -1,1 +1,1 @@
-https://thblslvr.github.io/zakrivayuschiy-teg-f/
+https://github.com/thblslvr/zakrivayuschiy-teg-f
