@@ -531,16 +531,16 @@
         </li>
       </ul>
 
-      <div class="flex-container">
+      <div class="btn-container">
         <button
           type="button"
           onclick="window['dialog-save'].showModal();"
           aria-controls="dialog-save"
-          class="button btn-mod"
+          class="button btn-save"
         >
           <img
             class="save-button__icon"
-            src="/svg/disk.svg"
+            src="./svg/disk.svg"
             alt=""
             width="21"
             height="21"
@@ -555,20 +555,25 @@
         <div class="dialog__header">
           <img
             class="dialog__icon"
-            src="/svg/disk.svg"
+            src="./svg/disk.svg"
             alt=""
             width="39"
             height="39"
           />
           <h3 class="dialog__title">Вставьте дискету, чтобы продолжить</h3>
         </div>
-        <form method="dialog" class="dialog__form" id="memory-form">
+        <form
+          method="dialog"
+          onsubmit="return false"
+          class="dialog__form"
+          id="memory-form"
+        >
           <button
             onclick="window['dialog-save'].close();"
-            class="button dialog__button"
+            class="button button--dialog"
             type="submit"
           >
-            <span class="button__text">Ок</span>
+            Ок
           </button>
         </form>
       </div>

@@ -15,10 +15,14 @@
   background: var(--background-image);
   background-size: cover;
   background-attachment: fixed;
-  background-repeat: repeat-x;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: 'wght' var(--font-weight-text);
+  image-rendering: pixelated;
+}
+
+.header__logo {
+  background: #fff;
 }
 
 .header__logo,
@@ -54,6 +58,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  background: #fff;
   width: 100%;
 }
 
@@ -113,17 +118,22 @@
 
 .button {
   position: relative;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  max-width: 130px;
-  border: 2px solid var(--color-primary);
-  font-family: var(--font-secondary);
-  font-weight: var(--font-weight-static);
-  font-size: var(--text-size-small);
+  border: 2px solid #000;
+  padding: 12.5px 20px;
+  overflow: hidden;
+  color: #000;
+  font-family: var(--font-accent);
+  font-size: 14px;
   line-height: 90%;
-  background-color: var(--color-secondary);
+  background: #fff;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
   appearance: none;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .button::before {
@@ -150,14 +160,6 @@
   outline: none;
 }
 
-.button__icon {
-  display: flex;
-  width: 28px;
-  height: 28px;
-  color: var(--color-button-text);
-  mix-blend-mode: difference;
-}
-
 .button__text {
   display: block;
   height: max-content;
@@ -168,10 +170,6 @@
   font-style: normal;
   line-height: 90%;
   mix-blend-mode: difference;
-}
-
-.card__image-wrapper {
-  position: relative;
 }
 
 .card__image-container {
@@ -231,45 +229,10 @@
   outline: none;
 }
 
-.card__like-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: max-content;
-  margin-left: 5px;
-  border: 2px solid #000;
-  padding: 12.5px 37px 8px 34px;
-  overflow: hidden;
-  color: #000;
-  font-family: var(--font-accent);
-  font-size: 14px;
-  background: #fff;
-  transition: color 0.5s ease;
-  cursor: pointer;
-}
-
 .main {
   display: block;
   width: 100%;
   padding-bottom: 103px;
-}
-
-.save-button {
-  color: #000;
-  display: flex;
-  gap: 8px;
-  max-width: 350px;
-  margin: 50px auto;
-  padding: 12.5px 21px 18.5px;
-  font-family: var(--font-accent);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 90%;
-  background: transparent;
-}
-
-.save-button__text {
-  margin-top: 5px;
 }
 
 .dialog {
@@ -278,7 +241,6 @@
   z-index: 10;
   display: none;
   max-width: min(91%, 353px);
-  max-height: min(910%, 200px);
   border: none;
   padding: 0;
   font-family: var(--font-accent);
@@ -332,74 +294,25 @@
   justify-content: center;
   gap: 20px;
   width: 100%;
-  height: 100%;
 }
 
-.dialog__textarea {
-  width: 100%;
-  height: 100%;
-  min-height: 100px;
-  border: 2px solid #000;
-  padding: 15px;
-  font-family: var(--font-main);
-  font-size: 16px;
-  resize: none;
-}
-
-.dialog__button {
-  align-self: center;
-  width: 100%;
-  min-width: 100%;
-  padding: 12px 24px;
-  text-transform: uppercase;
-}
-
-@media (width<400px) {
-
-  .btn-mod {
-    flex-direction: column;
-    gap: 9px;
-  }
-
-  .save-button__icon {
-    align-self: center;
-    width: 28px;
-    height: 28px;
-  }
-
-  .dialog {
-    width: 341px;
-    height: 200px;
-  }
-}
-
-.flex-container {
+.btn-container {
   display: flex;
   justify-content: center;
 }
 
-.btn-mod {
-  position: relative;
-  max-width: 365px;
-  line-height: 90%;
-  background-color: var(--color-secondary);
-  appearance: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5px;
-  border: 2px solid #000;
-  padding: 12.5px 18px 14px;
-  overflow: hidden;
-  color: #000;
-  font-family: var(--font-accent);
+.card__like-button {
+  padding: 12.5px 37px 8px 34px;
+  max-width: 130px;
+}
+
+.btn-save {
   font-size: 14px;
-  transition: color 0.5s ease;
-  cursor: pointer;
+  padding: 12.5px 18px 14px;
   margin-top: 50px;
 }
 
-.btn-mod > .save-button__icon {
+.btn-save > .save-button__icon {
   margin-right: 10px;
 }
 
@@ -424,7 +337,7 @@
 }
 
 .img__fltr_brightness-blur {
-  filter: blur(2px) brightness(105%);
+  filter: blur(1px) brightness(35%);
 }
 
 .img__fltr_saturate-sepia {
@@ -434,10 +347,27 @@
 @supports (-webkit-text-stroke: 1px #000) or (text-stroke: 1px #000) {
 
   .card__image-label {
-    /* Убираем text-shadow, так как есть поддержка text-stroke */
     text-shadow: none;
-    /* Применяем text-stroke с префиксом и без */
     -webkit-text-stroke: 1px var(--stroke-color);
     text-stroke: 1px var(--stroke-color);
+  }
+}
+
+@media (width<400px) {
+
+  .btn-save {
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .save-button__icon {
+    color: #000;
+    align-self: center;
+    width: 28px;
+    height: 28px;
+  }
+
+  .btn-save > .save-button__icon {
+    margin-right: 0;
   }
 }
