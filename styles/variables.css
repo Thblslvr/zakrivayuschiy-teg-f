@@ -4,7 +4,7 @@
   --font-main:
     'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen,
     ubuntu, cantarell, 'Open Sans', sans-serif;
-  --font-accent: 'Press Start 2P', 'Courier New', courier, monospace;
+  --font-accent: 'Press Start 2P', 'fantasy', courier, monospace;
   --text-weight: 400; /* обычный текст */
   --title-weight: 700; /* жирный заголовок */
   --min-logo-size: 375px;
