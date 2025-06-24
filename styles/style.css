@@ -177,8 +177,6 @@
   border-bottom: 2px solid #000;
 }
 
-/* Стили для текстового лейбла */
-
 .card__image-label {
   position: absolute;
   top: clamp(26px, calc(26px + 4 * (100vw - 375px) / 1065), 27px);
@@ -212,8 +210,8 @@
   display: flex;
   height: fit-content;
   border: 2px solid transparent;
-  padding-right: 4px;
-  padding-left: 7px;
+  padding: 0;
+  margin: 1px 4px 1px 7px;
   background: var(--color-secondary);
   transition: border-color 0.3s ease;
   cursor: pointer;
@@ -275,6 +273,12 @@
   font-family: var(--font-accent);
 }
 
+.save-button__icon {
+  border: none;
+  mix-blend-mode: difference;
+  filter: invert(1); /* Инвертируем цвет иконки */
+}
+
 .dialog__title {
   margin: 0;
   font-family: var(--font-accent);
@@ -308,7 +312,7 @@
 
 .btn-save {
   font-size: 14px;
-  padding: 12.5px 18px 14px;
+  padding: 12.5px 18px 17px;
   margin-top: 50px;
 }
 
